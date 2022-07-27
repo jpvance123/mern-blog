@@ -1,7 +1,7 @@
-const Blog = require('../models/blogModel')
-const asyncHandler = require('express-async-handler')
-const User = require('../models/userModel')
-const mongoose = require('mongoose')
+const Blog = require('../models/blogModel');
+const asyncHandler = require('express-async-handler');
+const User = require('../models/userModel');
+const mongoose = require('mongoose');
 
 
 const getAllBlogPosts = asyncHandler( async (req, res) => {
@@ -11,7 +11,7 @@ const getAllBlogPosts = asyncHandler( async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message })
   }
-})
+});
 
 const addBlogPost = asyncHandler( async (req, res) => {
   const id = req.params.id
@@ -36,7 +36,7 @@ const addBlogPost = asyncHandler( async (req, res) => {
     }
     res.status(201).json(createNewPost)
   })
-})
+});
 
 const getSinglePost = asyncHandler( async (req, res) => {
   const { id } = req.params
@@ -49,7 +49,7 @@ const getSinglePost = asyncHandler( async (req, res) => {
     res.status(400)
     throw new Error('Invalid user data.')
   }
-})
+});
 
 const updateBlogPost = asyncHandler( async (req, res) => {
   const { id } = req.params
@@ -72,7 +72,7 @@ const updateBlogPost = asyncHandler( async (req, res) => {
     res.status(400)
     throw new Error('Invalid Post Data.')
   }
-})
+});
 
 const removeBlogPost = asyncHandler( async (req, res) => {
   const { id } = req.params
@@ -87,7 +87,7 @@ const removeBlogPost = asyncHandler( async (req, res) => {
     res.status(400)
     throw new Error(' Post could not be deleted at this time.')
   }
-})
+});
 
 const likeBlogPost = asyncHandler( async (req, res) => {
   const { id } = req.params
@@ -110,7 +110,7 @@ const likeBlogPost = asyncHandler( async (req, res) => {
     res.status(400)
     throw new Error('Post could not be Liked.')
   }
-})
+});
 
 
 module.exports = {
@@ -120,4 +120,4 @@ module.exports = {
   updateBlogPost,
   removeBlogPost,
   likeBlogPost,
-}
+};

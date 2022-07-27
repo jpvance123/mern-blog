@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
   name: {
@@ -15,6 +15,6 @@ const userSchema = mongoose.Schema({
     required: [true, 'Please add your password']
   },
   blogPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'BlogPosts'}]
-})
+});
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema);
